@@ -22,7 +22,7 @@ public class ReportController {
 
     }
 
-    @PostMapping
+    @GetMapping
     public List<DevoReport> report(@RequestBody LocalDateTime date){
 
         return srvc.reportList(date);
