@@ -2,26 +2,28 @@ package com.example.apiexportexceltoemail.service;
 
 import com.example.apiexportexceltoemail.persistences.models.entities.DevoReport;
 import com.example.apiexportexceltoemail.persistences.repositories.ReportRepository;
-import org.springframework.cglib.core.Local;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Service
 public class GetReportServiceImplement {
 
-    private final ReportRepository report;
+    private final ReportRepository repository;
 
-    public GetReportServiceImplement(ReportRepository report){
-        this.report = report;
+    public GetReportServiceImplement(ReportRepository repository){
+
+        this.repository = repository;
+
     }
 
     @Transactional(readOnly = true)
-    public List<DevoReport> reportList(LocalDateTime date) {
+    public List<DevoReport> reportList(LocalDateTime date){
 
-        return report.getReport(date);
+        return this.repository.getReport(date);
 
     }
-
 
 }
