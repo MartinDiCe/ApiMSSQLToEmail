@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-public class GetReportServiceImplement {
+public class GetReportServiceImplement implements GetReportService {
 
     private final ReportRepository repository;
 
