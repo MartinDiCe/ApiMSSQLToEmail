@@ -1,7 +1,11 @@
 package com.example.apiexportexceltoemail.service;
 
-public interface reportServiceImplement {
+import com.example.apiexportexceltoemail.persistences.models.entities.DevoReport;
 
+import java.util.List;
 
+public interface GetReportService {
+
+    List<DevoReport> reportDevo();
 
 }
