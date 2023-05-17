@@ -1,4 +1,4 @@
-package com.example.apiexportexceltoemail.persistences.models.entities;
+package com.example.apiexportexceltoemail.persistences.models;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Setter
 public class DevoReport {
 
-    private LocalDate ExecuteDate;
+    private LocalDate executeDate;
     private String errorMessage;
     private String order;
     private String item;
