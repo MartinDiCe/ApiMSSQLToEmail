@@ -1,4 +1,4 @@
-package com.diceprojects.apiexportexceltoemail.config;
+package com.diceprojects.apiexportexceltoemail.config.email;
 
 import com.diceprojects.apiexportexceltoemail.persistences.models.ParamFecha;
 

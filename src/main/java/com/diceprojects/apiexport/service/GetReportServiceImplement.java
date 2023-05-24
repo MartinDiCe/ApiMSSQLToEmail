@@ -1,31 +1,40 @@
-package com.example.apiexportexceltoemail.service;
+package com.diceprojects.apiexportexceltoemail.service;
 
 
-import com.example.apiexportexceltoemail.dto.ReportDTO;
+import com.diceprojects.apiexportexceltoemail.dto.ReportDTO;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.util.ByteArrayDataSource;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.ParameterMode;
 import jakarta.persistence.StoredProcedureQuery;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.mail.javamail.MimeMessagePreparator;
+import jakarta.activation.DataSource;
+import jakarta.activation.MimetypesFileTypeMap;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
+
+import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class GetReportServiceImplement implements GetReportService {
 
     private final EntityManager entityManager;
+
 
     @Autowired
     public GetReportServiceImplement(EntityManager entityManager) {
@@ -150,4 +159,22 @@ public class GetReportServiceImplement implements GetReportService {
         return resource;
     }
 
-}
+    @Override
+    public byte[] convertResourceToByteArray(Resource resource) throws IOException {
+        InputStream inputStream = resource.getInputStream();
+        byte[] bytes = IOUtils.toByteArray(inputStream);
+        inputStream.close();
+        return bytes;
+    }
+
+    @Override
+    public Resource convertResultToFile(List<ReportDTO> fileContent) throws IOException {
+        // Genera el archivo Excel y devuelve un objeto ByteArrayResource
+        Resource excelResource = createExcelFile(fileContent);
+        byte[] excelBytes = convertResourceToByteArray(excelResource);
+        return new ByteArrayResource(excelBytes);
+    }
+
+    }
+
+

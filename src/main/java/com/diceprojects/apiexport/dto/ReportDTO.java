@@ -1,4 +1,4 @@
-package com.example.apiexportexceltoemail.dto;
+package com.diceprojects.apiexportexceltoemail.dto;
 
 import lombok.Getter;
 import lombok.Setter;
