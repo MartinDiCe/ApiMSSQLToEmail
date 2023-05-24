@@ -1,4 +1,4 @@
-package com.diceprojects.apiexportexceltoemail.persistences.models;
+package com.diceprojects.apiexport.persistences.models;
 
 import lombok.Data;
 

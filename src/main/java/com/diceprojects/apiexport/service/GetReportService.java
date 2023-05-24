@@ -1,12 +1,11 @@
-package com.diceprojects.apiexportexceltoemail.service;
+package com.diceprojects.apiexport.service;
 
 
-import com.diceprojects.apiexportexceltoemail.dto.ReportDTO;
+import com.diceprojects.apiexport.dto.ReportDTO;
 import org.springframework.core.io.Resource;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 public interface GetReportService {

@@ -1,6 +1,6 @@
-package com.diceprojects.apiexportexceltoemail.config.email;
+package com.diceprojects.apiexport.config.email;
 
-import com.diceprojects.apiexportexceltoemail.persistences.models.ParamFecha;
+import com.diceprojects.apiexport.persistences.models.ParamFecha;
 
 public class SendReportRequest {
     private String recipientEmail;

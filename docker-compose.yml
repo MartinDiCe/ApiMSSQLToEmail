@@ -1,0 +1,38 @@
+version: '3'
+services:
+  sqlserver:
+    image: mdiceprojects/sqlserver
+    container_name: sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Osm3d1c418.23
+    ports:
+      - 1433:1433
+    volumes:
+      - ./create-user.sql:/docker-entrypoint-initdb.d/create-user.sql
+    networks:
+      diceprojects:
+        ipv4_address: 172.19.0.2
+
+  apiexport:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        IMAGE_NAME: ApiExport
+    container_name: apiexport
+    ports:
+      - 8001:8001
+    networks:
+      diceprojects:
+        ipv4_address: 172.19.0.3
+    depends_on:
+      - sqlserver
+
+networks:
+  diceprojects:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.19.0.0/16
+

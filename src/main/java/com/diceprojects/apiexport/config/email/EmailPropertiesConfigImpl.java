@@ -1,4 +1,4 @@
-package com.diceprojects.apiexportexceltoemail.config.email;
+package com.diceprojects.apiexport.config.email;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;

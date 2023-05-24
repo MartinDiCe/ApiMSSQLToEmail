@@ -1,4 +1,4 @@
-package com.diceprojects.apiexportexceltoemail;
+package com.diceprojects.apiexport;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

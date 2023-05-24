@@ -1,9 +1,8 @@
-package com.diceprojects.apiexportexceltoemail.dto;
+package com.diceprojects.apiexport.dto;
 
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 

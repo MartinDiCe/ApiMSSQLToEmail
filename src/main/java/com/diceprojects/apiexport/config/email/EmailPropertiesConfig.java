@@ -1,4 +1,4 @@
-package com.diceprojects.apiexportexceltoemail.config.email;
+package com.diceprojects.apiexport.config.email;
 
 import lombok.Getter;
 import lombok.Setter;

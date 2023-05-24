@@ -1,4 +1,4 @@
-package com.diceprojects.apiexport.controllers;
+package com.diceprojects.apiexport.controller;
 
 
 import com.diceprojects.apiexport.config.email.SendReportRequest;

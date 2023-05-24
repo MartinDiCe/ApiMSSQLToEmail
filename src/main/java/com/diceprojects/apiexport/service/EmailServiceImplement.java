@@ -1,6 +1,6 @@
-package com.diceprojects.apiexportexceltoemail.service;
+package com.diceprojects.apiexport.service;
 
-import com.diceprojects.apiexportexceltoemail.config.email.EmailPropertiesConfig;
+import com.diceprojects.apiexport.config.email.EmailPropertiesConfig;
 import jakarta.activation.DataSource;
 import jakarta.activation.MimetypesFileTypeMap;
 import jakarta.mail.internet.MimeMessage;

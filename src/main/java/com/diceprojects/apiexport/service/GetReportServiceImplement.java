@@ -1,9 +1,7 @@
-package com.diceprojects.apiexportexceltoemail.service;
+package com.diceprojects.apiexport.service;
 
 
-import com.diceprojects.apiexportexceltoemail.dto.ReportDTO;
-import jakarta.mail.internet.MimeMessage;
-import jakarta.mail.util.ByteArrayDataSource;
+import com.diceprojects.apiexport.dto.ReportDTO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.ParameterMode;
 import jakarta.persistence.StoredProcedureQuery;
@@ -14,12 +12,7 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
-import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.mail.javamail.MimeMessagePreparator;
-import jakarta.activation.DataSource;
-import jakarta.activation.MimetypesFileTypeMap;
 
 
 import java.io.*;
@@ -27,7 +20,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service

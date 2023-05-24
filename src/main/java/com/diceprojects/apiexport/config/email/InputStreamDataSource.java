@@ -1,4 +1,4 @@
-package com.diceprojects.apiexport.config;
+package com.diceprojects.apiexport.config.email;
 
 import javax.activation.DataSource;
 import java.io.InputStream;
