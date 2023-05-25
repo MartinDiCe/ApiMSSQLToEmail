@@ -1,4 +1,4 @@
-package com.diceprojects.apiexport.controller;
+package com.diceprojects.apiexport.controllers;
 
 
 import com.diceprojects.apiexport.config.email.SendReportRequest;
@@ -97,7 +97,7 @@ public class ReportController {
     }
 
     //@RequestMapping(value = "/sendReportByEmail", method = RequestMethod.POST)
-    @PostMapping("/downloadExcel")
+    @PostMapping("/sendReportByEmail")
     public ResponseEntity<String> sendReportByEmail(@RequestBody(required = true) SendReportRequest request) {
 
         try {
