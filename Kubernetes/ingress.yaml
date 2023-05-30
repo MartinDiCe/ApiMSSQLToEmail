@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: containers-ingress
+  namespace: default
+spec:
+  rules:
+    - host: containers.sqlserver.diceprojects.com
+      http:
+        paths:
+          - path: /sqlserver
+            pathType: Prefix
+            backend:
+              service:
+                name: sqlserver-service
+                port:
+                  number: 1433
+  ingressClassName: addon-http-application-routing

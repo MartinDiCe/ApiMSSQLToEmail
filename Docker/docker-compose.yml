@@ -16,8 +16,8 @@ services:
 
   apiexport:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ..
+      dockerfile: ../Dockerfile
       args:
         IMAGE_NAME: ApiExport
     container_name: apiexport

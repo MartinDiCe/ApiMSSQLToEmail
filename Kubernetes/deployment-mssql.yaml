@@ -12,9 +12,11 @@ spec:
       labels:
         app: sqlserver
     spec:
+      securityContext:
+        fsGroup: 10001  # GID del grupo "mssql"
       containers:
         - name: sqlserver
-          image: mdiceprojects/apiexport:latest
+          image: mdiceprojects/sqlserver:latest
           ports:
             - containerPort: 1433
           env:
