@@ -1,11 +1,11 @@
 USE master;
 GO
 
-CREATE LOGIN apiexport WITH PASSWORD = 'Osm3d1c4';
+CREATE LOGIN userlogin WITH PASSWORD = '';
 GO
 
-CREATE USER apiexport FOR LOGIN apiexport;
+CREATE USER userlogin FOR LOGIN userlogin;
 GO
 
-ALTER SERVER ROLE sysadmin ADD MEMBER apiexport;
+ALTER SERVER ROLE sysadmin ADD MEMBER userlogin;
 GO
