@@ -1,0 +1,7 @@
+# Datos de la BD
+FROM sqlserver
+
+ENV SA_PASSWORD=Osm3d1c418.23
+ENV ACCEPT_EULA=Y
+
+COPY ../init-script.sh /docker-entrypoint-initdb.d/
