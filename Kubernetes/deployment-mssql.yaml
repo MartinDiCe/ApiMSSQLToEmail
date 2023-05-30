@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sqlserver-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sqlserver
+  template:
+    metadata:
+      labels:
+        app: sqlserver
+    spec:
+      containers:
+        - name: sqlserver
+          image: mdiceprojects/apiexport:latest
+          ports:
+            - containerPort: 1433
+          env:
+            - name: ACCEPT_EULA
+              value: "Y"
+            - name: SA_PASSWORD
+              value: "Osm3d1c418.23"
+          volumeMounts:
+            - name: data-volume
+              mountPath: /var/opt/mssql
+      volumes:
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: data-pvc
