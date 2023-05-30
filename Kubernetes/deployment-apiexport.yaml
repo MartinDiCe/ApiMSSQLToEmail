@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apiexport-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apiexport
+  template:
+    metadata:
+      labels:
+        app: apiexport
+    spec:
+      containers:
+        - name: apiexport
+          image: diceprojects/apiexport
+          ports:
+            - containerPort: 8008

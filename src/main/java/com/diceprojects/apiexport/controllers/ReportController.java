@@ -1,4 +1,4 @@
-package com.diceprojects.apiexport.controller;
+package com.diceprojects.apiexport.controllers;
 
 
 import com.diceprojects.apiexport.config.email.SendReportRequest;
@@ -38,15 +38,16 @@ public class ReportController {
 
     }
 
-    @RequestMapping(value = "/getReport", method = RequestMethod.GET)
-  /*  @GetMapping("/getReport")*/
+    //@RequestMapping(value = "/getReport", method = RequestMethod.GET)
+    @GetMapping("/getReport")
     public ResponseEntity<List<ReportDTO>> getReport(@RequestParam("date") RequestDataDTO requestData) {
         ParamFecha date = requestData.getDate();
         List<ReportDTO> fileContent = service.convertResultToFile(date.getDate());
         return ResponseEntity.ok().body(fileContent);
     }
 
-    @RequestMapping(value = "/downloadCSV", method = RequestMethod.GET)
+    //@RequestMapping(value = "/downloadCSV", method = RequestMethod.GET)
+    @GetMapping("/downloadCSV")
     public ResponseEntity<Resource> downloadCSV(@RequestParam("date") RequestDataDTO requestData) throws IOException {
         ParamFecha date = requestData.getDate();
         List<ReportDTO> fileContent = service.convertResultToFile(date.getDate());
@@ -70,7 +71,8 @@ public class ReportController {
                 .body(resource);
     }
 
-    @RequestMapping(value = "/downloadExcel", method = RequestMethod.GET)
+    //@RequestMapping(value = "/downloadExcel", method = RequestMethod.GET)
+    @GetMapping("/downloadExcel")
     public ResponseEntity<Resource> downloadExcel(@RequestParam("date") RequestDataDTO requestData) throws IOException {
         ParamFecha date = requestData.getDate();
         List<ReportDTO> fileContent = service.convertResultToFile(date.getDate());
@@ -94,7 +96,8 @@ public class ReportController {
                 .body(resource);
     }
 
-    @RequestMapping(value = "/sendReportByEmail", method = RequestMethod.POST)
+    //@RequestMapping(value = "/sendReportByEmail", method = RequestMethod.POST)
+    @PostMapping("/sendReportByEmail")
     public ResponseEntity<String> sendReportByEmail(@RequestBody(required = true) SendReportRequest request) {
 
         try {
